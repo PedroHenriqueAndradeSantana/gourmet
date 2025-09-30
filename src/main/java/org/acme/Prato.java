@@ -1,45 +1,51 @@
 package org.acme;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.acme.CategoriaPrato;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import java.math.BigDecimal;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+import java.util.HashSet;
 import java.util.Set;
+
 
 @Entity
 public class Prato extends PanacheEntity {
-    @NotBlank(message = "O nome não pode ser nulo ou vazio")
-    @Schema(example = "Spaghetti Carbonara")
+
+    @NotNull
+    @Size(min = 2, max = 100, message = "O nome do prato deve ter entre 2 a 100 letras")
     public String nome;
 
-    @NotNull(message = "O preço não pode ser nulo")
-    @DecimalMin(value = "0.0", inclusive = false, message = "O preço deve ser maior que zero")
-    @Digits(integer=6, fraction=2, message = "Formato de preço inválido")
-    @Schema(example = "59.90")
-    public BigDecimal preco;
+    @NotNull
+    @Size(min = 2, max = 200, message = "A descrição do prato deve ter entre 2 a 200 letras")
+    public String descricao;
 
-    @NotNull(message = "A categoria não pode ser nula")
-    @Enumerated(EnumType.STRING)
-    @Schema(implementation = CategoriaPrato.class, example = "PRATO_PRINCIPAL")
-    public CategoriaPrato categoria;
+    @Min(value = 5, message = "O tempo mínimo de preparo é 5 minutos")
+    @Max(value = 90, message = "O tempo máximo de preparo é 90 minutos")
+    public int tempoPreparoMinutos;
 
+    // relacionamento OneToOne 
+    @OneToOne
+    @JoinColumn(name = "chef_id", unique = true)
+    public Chef chefResponsavel;
 
+    // relacionamento ManyToMany 
+    @ManyToMany(mappedBy = "pratos")
+    public Set<Pedido> pedidos = new HashSet<>();
 
+    public Prato() {
+    }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurante_id")
-    @NotNull(message = "O prato deve pertencer a um restaurante")
-    @JsonIgnore
-    public Restaurante restaurante;
-
-
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinTable(name = "prato_ingrediente",
-            joinColumns = @JoinColumn(name = "prato_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingrediente_id"))
-    @NotEmpty(message = "O prato deve conter ao menos um ingrediente")
-    public Set<Ingrediente> ingredientes;
+    
+    public Prato(String nome, String descricao, int tempoPreparoMinutos, Chef chefResponsavel) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.tempoPreparoMinutos = tempoPreparoMinutos;
+        this.chefResponsavel = chefResponsavel;
+    }
 }

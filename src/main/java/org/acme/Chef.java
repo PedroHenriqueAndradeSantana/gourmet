@@ -1,24 +1,36 @@
 package org.acme;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
-import jakarta.validation.constraints.NotBlank;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Chef extends PanacheEntity {
-    @NotBlank(message = "O nome do chef não pode ser nulo ou vazio")
-    @Schema(example = "Paola Carosella")
+
+    @NotNull
+    @Size(min = 2, max = 100, message = "O nome do chef deve ter entre 2 a 100 letras")
     public String nome;
 
-    @NotBlank(message = "A especialidade não pode ser nula ou vazia")
-    @Schema(example = "Cozinha Italiana")
-    public String especialidade;
+    @NotNull
+    @Size(min = 3, max = 50, message = "A especialidade deve ter entre 3 a 50 letras")
+    public String especialidade; 
 
-    // Relacionamento One-to-One (lado inverso)
-    @OneToOne(mappedBy = "chef")
-    @JsonIgnore // Evita recursividade infinita na serialização JSON
-    public Restaurante restaurante;
+    @Min(value = 0, message = "Os anos de experiência não podem ser negativos")
+    public int anosDeExperiencia;
+
+    
+    @OneToOne(mappedBy = "chefResponsavel")
+    public Prato pratoAssinado;
+
+    public Chef() {
+    }
+
+    public Chef(String nome, String especialidade, int anosDeExperiencia) {
+        this.nome = nome;
+        this.especialidade = especialidade;
+        this.anosDeExperiencia = anosDeExperiencia;
+    }
 }
