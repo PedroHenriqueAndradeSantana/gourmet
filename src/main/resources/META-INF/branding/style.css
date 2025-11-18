@@ -1,0 +1,219 @@
+body {
+    background: #1a1a1a !important;
+}
+
+.swagger-ui {
+    background: #1a1a1a !important;
+}
+
+.swagger-ui .topbar {
+    background: #2d2d2d !important;
+    border-bottom: 3px solid #d4af37 !important;
+}
+
+.swagger-ui .info {
+    background: #2d2d2d !important;
+    border: 2px solid #d4af37 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+}
+
+.swagger-ui .info .title {
+    color: #d4af37 !important;
+}
+
+/* Títulos dos endpoints - DOURADO */
+.swagger-ui .opblock-tag {
+    color: #d4af37 !important;
+    border-bottom: 2px solid #d4af37 !important;
+}
+
+.swagger-ui .opblock-summary-path {
+    color: #d4af37 !important;
+    font-weight: bold !important;
+}
+
+.swagger-ui .opblock-summary-method {
+    color: #d4af37 !important;
+}
+
+/* Descrições e textos - BRANCO */
+.swagger-ui .opblock {
+    background: #2d2d2d !important;
+    border: 1px solid #d4af37 !important;
+}
+
+.swagger-ui .opblock-description,
+.swagger-ui .opblock-summary-description,
+.swagger-ui .opblock-description-wrapper p,
+.swagger-ui .markdown p,
+.swagger-ui .parameter__name,
+.swagger-ui .parameter__type,
+.swagger-ui .parameter__deprecated,
+.swagger-ui .parameter__in,
+.swagger-ui .prop-type,
+.swagger-ui .prop-format,
+.swagger-ui .response-col_description,
+.swagger-ui .response-col_status,
+.swagger-ui .model-title,
+.swagger-ui .model-description,
+.swagger-ui .model p,
+.swagger-ui td,
+.swagger-ui .renderedMarkdown p,
+.swagger-ui .tab li {
+    color: #ffffff !important;
+}
+
+/* Descrições de parâmetros */
+.swagger-ui .parameter__name.required span {
+    color: #ffffff !important;
+}
+
+.swagger-ui .parameter__name.required:after {
+    color: #ff6b6b !important;
+}
+
+/* Labels e headers de tabelas */
+.swagger-ui table thead tr th,
+.swagger-ui table thead tr td {
+    background: #2d2d2d !important;
+    color: #d4af37 !important;
+    border-bottom: 1px solid #d4af37 !important;
+}
+
+/* Corpo das tabelas */
+.swagger-ui table tbody tr td {
+    color: #ffffff !important;
+    border-bottom: 1px solid #3d3d3d !important;
+}
+
+/* Botões */
+.swagger-ui .btn {
+    background: #d4af37 !important;
+    color: #000 !important;
+    font-weight: bold !important;
+}
+
+.swagger-ui .btn:hover {
+    background: #c4a037 !important;
+}
+
+/* Inputs */
+.swagger-ui input,
+.swagger-ui textarea,
+.swagger-ui select {
+    background: #2d2d2d !important;
+    border: 1px solid #d4af37 !important;
+    color: #fff !important;
+}
+
+.swagger-ui input::placeholder,
+.swagger-ui textarea::placeholder {
+    color: #999 !important;
+}
+
+/* Responses */
+.swagger-ui .responses-inner h4,
+.swagger-ui .responses-inner h5 {
+    color: #d4af37 !important;
+}
+
+.swagger-ui .response-col_status {
+    color: #d4af37 !important;
+    font-weight: bold !important;
+}
+
+/* Code blocks */
+.swagger-ui .highlight-code,
+.swagger-ui .microlight {
+    background: #1a1a1a !important;
+    border: 1px solid #d4af37 !important;
+    color: #ffffff !important;
+}
+
+/* JSON response */
+.swagger-ui .response-col_description__inner pre {
+    background: #1a1a1a !important;
+    border: 1px solid #d4af37 !important;
+    color: #ffffff !important;
+}
+
+/* Headers na resposta */
+.swagger-ui .response-col_links {
+    color: #ffffff !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37 !important;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c4a037 !important;
+}
+
+/* Try it out section */
+.swagger-ui .opblock-body pre {
+    background: #1a1a1a !important;
+    border: 1px solid #d4af37 !important;
+    color: #ffffff !important;
+}
+
+/* Models */
+.swagger-ui section.models {
+    border: 1px solid #d4af37 !important;
+    background: #2d2d2d !important;
+}
+
+.swagger-ui section.models h4 {
+    color: #d4af37 !important;
+}
+
+.swagger-ui section.models .model-container {
+    background: #2d2d2d !important;
+}
+
+/* Execute button */
+.swagger-ui .execute-wrapper .btn {
+    background: #d4af37 !important;
+    color: #000 !important;
+}
+
+/* Clear button */
+.swagger-ui .btn-clear {
+    background: #ff6b6b !important;
+    color: #fff !important;
+}
+
+/* Authorization button */
+.swagger-ui .authorization__btn {
+    background: #d4af37 !important;
+    color: #000 !important;
+    border-color: #d4af37 !important;
+}
+
+/* Schema description */
+.swagger-ui .model-box,
+.swagger-ui .model-box-control {
+    background: #2d2d2d !important;
+    border-color: #d4af37 !important;
+}
+
+.swagger-ui .model-box-control:focus {
+    border-color: #d4af37 !important;
+}
+
+/* Links */
+.swagger-ui a {
+    color: #d4af37 !important;
+}
+
+.swagger-ui a:hover {
+    color: #c4a037 !important;
+}
