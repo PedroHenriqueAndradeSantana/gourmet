@@ -28,7 +28,6 @@ public class Bebida extends PanacheEntity {
     @NotNull
     public boolean alcoolica;
 
-    
 
 
     public Bebida() {
